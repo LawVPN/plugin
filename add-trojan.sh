@@ -37,9 +37,9 @@ sed -i '/#trojan$/a\#& '"$user $exp"'\
 sed -i '/#trojan-grpc$/a\#& '"$user $exp"'\
 },{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/config.json
 
-trojanlink="trojan://$user@$domain:$tls?path=$pathtrojan&security=tls&host=$domain&type=ws&sni=$domain#$user"
-trojanlink1="trojan://${user}@$domain:$none?path=$pathtrojan&security=none&host=$domain&type=ws#$user"
-trojanlink2="trojan://${user}@$domain:$tls?security=tls&encryption=none&type=grpc&serviceName=$pathtrojangrpc&sni=$domain#$user"
+trojanlink="trojan://${user}@${domain}:${tls}?path=${pathtrojan}&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
+trojanlink1="trojan://${user}@${domain}:${none}?path=${pathtrojan}&security=none&host=${domain}&type=ws#${user}"
+trojanlink2="trojan://${user}@${domain}:${tls}?security=tls&encryption=none&type=grpc&serviceName=${pathtrojangrpc}&sni=${domain}#${user}"
 sleep 1 && systemctl restart xray > /dev/null 2>&1
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | tee -a /etc/log-create-user.log
